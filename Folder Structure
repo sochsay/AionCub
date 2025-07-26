@@ -1,0 +1,15 @@
+/connectly
+├── src/
+│   ├── pages/
+│   │   ├── index.tsx             # Feed / home page
+│   │   ├── auth/ (signin, signout)
+│   │   ├── profile/[username].tsx
+│   │   └── thoughts/new.tsx
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── ThoughtBox.tsx
+│   │   ├── PostCard.tsx
+│   │   └── ProfileCard.tsx
+├── prisma/
+│   └── schema.prisma              # User, Thought, Comment models
+└── tailwind.config.js
