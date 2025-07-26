@@ -1,0 +1,31 @@
+model User {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  image       String?
+  bio         String?
+  skills      String[]
+  interests   String[]
+  thoughts    Thought[]
+  createdAt   DateTime @default(now())
+}
+
+model Thought {
+  id         String    @id @default(cuid())
+  author     User      @relation(fields: [authorId], references: [id])
+  authorId   String
+  content    String
+  createdAt  DateTime  @default(now())
+  likes      User[]    @relation("LikedThoughts")
+  comments   Comment[]
+}
+
+model Comment {
+  id         String    @id @default(cuid())
+  thought    Thought   @relation(fields: [thoughtId], references: [id])
+  thoughtId  String
+  author     User      @relation(fields: [authorId], references: [id])
+  authorId   String
+  text       String
+  createdAt  DateTime  @default(now())
+}
